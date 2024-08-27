@@ -73,7 +73,7 @@ section {
 
 .controls .progress-area .progress-bar {
   position: relative;
-  width: 50%;
+  width: 0%;
   background: #ef2a39;
   height: inherit;
   border-radius: inherit;

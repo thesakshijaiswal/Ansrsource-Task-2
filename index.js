@@ -10,7 +10,7 @@ const fastForward = videoPlayer.querySelector(".fast-forward");
 const volume = videoPlayer.querySelector(".volume");
 const volumeRange = videoPlayer.querySelector(".volume-range");
 const current = videoPlayer.querySelector(".current");
-const duration = videoPlayer.querySelector(".duration");
+const totalDuration = videoPlayer.querySelector(".duration");
 const autoPlay = videoPlayer.querySelector(".auto-play");
 const settingsBtn = videoPlayer.querySelector(".settingsBtn");
 const picInPic = videoPlayer.querySelector(".picture-in-picture");
@@ -53,4 +53,29 @@ fastRewind.addEventListener("click", () => {
 })
 fastForward.addEventListener("click", () => {
   mainVideo.currentTime += 10
+})
+
+//Load video duration
+mainVideo.addEventListener("loadeddata",(e) => {
+  let videoDuration = e.target.duration;
+  let totalMin = Math.floor(videoDuration / 60);
+  let totalSec = Math.floor(videoDuration % 60);
+
+  //if seconds are less than 10 then add 0 at beginning
+  totalSec < 10 ? totalSec ="0"+totalSec : totalSec;
+  totalDuration.innerHTML = `${totalMin}:${totalSec}`
+})
+
+//current video duration
+mainVideo.addEventListener("timeupdate",(e) => {
+  let currentVideoTime = e.target.currentTime;
+  let currentMin = Math.floor(currentVideoTime / 60);
+  let currentSec = Math.floor(currentVideoTime % 60);
+  currentSec < 10 ? currentSec ="0"+currentSec : currentSec;
+  current.innerHTML = `${currentMin}:${currentSec}` 
+
+  let videoDuration = e.target.duration;
+  //progress bar width change
+  let progressWidth = (currentVideoTime / videoDuration) * 100;
+  progressBar.style.width = `${progressWidth}%`
 })
