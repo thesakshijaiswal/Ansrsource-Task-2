@@ -14,6 +14,7 @@ body{
 .material-icons{
     user-select: none;
     -webkit-user-select: none;
+    cursor: pointer;
 }
 
 section{
@@ -89,4 +90,40 @@ section{
     background: #EF2A39;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.controls .controls-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 46px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.controls .controls-list .controls-left,
+.controls .controls-list .controls-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls .controls-left .timer{
+    font-size: 14px;
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.controls .icon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-left: 5px;
+    margin-right: 8px;
 }
