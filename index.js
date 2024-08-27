@@ -16,7 +16,7 @@ const settingsBtn = videoPlayer.querySelector(".settingsBtn");
 const picInPic = videoPlayer.querySelector(".picture-in-picture");
 const fullscreen = videoPlayer.querySelector(".fullscreen");
 const settings = videoPlayer.querySelector("#settings");
-const playBack = videoPlayer.querySelector(".play-back");
+const playBack = videoPlayer.querySelector(".play-back li");
 
 
 function playVideo(){
@@ -79,3 +79,26 @@ mainVideo.addEventListener("timeupdate",(e) => {
   let progressWidth = (currentVideoTime / videoDuration) * 100;
   progressBar.style.width = `${progressWidth}%`
 })
+
+//open settings
+settingsBtn.addEventListener("click",() => {
+  settings.classList.toggle("active");
+  settingsBtn.classList.toggle("active");
+})
+
+//play back rate
+
+playBack.forEach((event) => {
+    event.addEventListener("click",() => {
+      removeActiveClasses();
+      event.classList.add("active");
+      let speed = event.getAttribute('data-speed');
+      mainVideo.playBackRate = speed;
+    })
+});
+
+function removeActiveClasses() {
+    playBack.forEach(event => {
+        event.classList.remove("active");
+    });
+}

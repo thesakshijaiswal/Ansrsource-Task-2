@@ -227,6 +227,11 @@ section {
   color: #fff;
   overflow-y: scroll;
   z-index: 20;
+  display: none;
+}
+
+#video-player #settings.active{
+  display: block;
 }
 
 #video-player #settings .play-back span {
