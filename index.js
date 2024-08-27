@@ -33,8 +33,24 @@ function pauseVideo() {
     mainVideo.pause();
 }
 
+// play or pause video on click
 playPause.addEventListener('click',() => {
   const isVideoPaused = videoPlayer.classList.contains('paused');
   isVideoPaused ?  pauseVideo() : playVideo()
 })
 
+mainVideo.addEventListener("play",() => {
+  playVideo();
+})
+mainVideo.addEventListener("pause",() => {
+  pauseVideo();
+})
+
+
+//skip forward or backward function
+fastRewind.addEventListener("click", () => {
+  mainVideo.currentTime -= 10
+})
+fastForward.addEventListener("click", () => {
+  mainVideo.currentTime += 10
+})
