@@ -277,3 +277,21 @@ section {
     background: #535353;
     border-radius: 20px;
 }
+
+.footer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 150px;
+  }
+  
+  .footer-container p {
+    font-weight: 500;
+  }
+  .footer-container p a {
+    color: #FF9633;
+    font-weight: 500;
+    text-decoration: none;
+  }
