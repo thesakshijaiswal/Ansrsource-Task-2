@@ -98,7 +98,6 @@ section {
   transform: translateY(180px);
   transition: all 0.3s;
 }
-
 .container #video-player .controls.active {
   transform: translateY(0);
 }
@@ -269,7 +268,7 @@ section {
   display: none;
 }
 
-#video-player #settings.active{
+#video-player #settings.active {
   display: block;
 }
 
@@ -295,67 +294,69 @@ section {
   font-size: 14px;
 }
 
-#video-player #settings .play-back ul li:hover{
-    background: #1c1c1ce6;
+#video-player #settings .play-back ul li:hover {
+  background: #1c1c1ce6;
 }
 
-#video-player #settings .play-back ul li.active::before{
-    content: '\e876';
-    font-family: "Material Icons";
-    position: absolute;
-    left: 7px;
-    top: 50%;
-    padding-right: 10px;
-    transform: translateY(-50%);
-    font-size: 18px;
+#video-player #settings .play-back ul li.active::before {
+  content: "\e876";
+  font-family: "Material Icons";
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  padding-right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
 }
 
-#video-player #settings::-webkit-scrollbar{
-    width: 8px;
-    background: transparent;
+#video-player #settings::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
 }
 
-#video-player #settings::-webkit-scrollbar-thumb{
-    height: 20px;
-    border: 2px solid transparent;
-    background: #535353;
-    border-radius: 20px;
+#video-player #settings::-webkit-scrollbar-thumb {
+  height: 20px;
+  border: 2px solid transparent;
+  background: #535353;
+  border-radius: 20px;
 }
 
 .footer {
-    background-color: black;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 150px;
+}
+
+.footer-container p {
+  font-weight: 500;
+}
+
+.footer-container p a {
+  color: #ff9633;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    height: 150px;
-  }
-  
-.footer-container p {
-    font-weight: 500;
   }
 
-.footer-container p a {
-    color: #FF9633;
-    font-weight: 500;
-    text-decoration: none;
+  .controls .icon {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 24px;
   }
 
-  @media(max-width: 400px){
-    .container{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .controls .icon{
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 24px;
-    }
-
-    .icon .volume-range, .icon .volume, .icon .picture-in-picture{
-        display: none;
-    }
+  .icon .volume-range,
+  .icon .volume,
+  .icon .picture-in-picture {
+    display: none;
   }
+}

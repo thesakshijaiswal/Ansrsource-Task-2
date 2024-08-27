@@ -13,92 +13,90 @@ const current = videoPlayer.querySelector(".current");
 const totalDuration = videoPlayer.querySelector(".duration");
 const autoPlay = videoPlayer.querySelector(".auto-play");
 const settingsBtn = videoPlayer.querySelector(".settingsBtn");
-const picInPic = videoPlayer.querySelector(".picture-in-picture");
+const pictureInPicture = videoPlayer.querySelector(".picture-in-picture");
 const fullscreen = videoPlayer.querySelector(".fullscreen");
 const settings = videoPlayer.querySelector("#settings");
 const playBack = videoPlayer.querySelectorAll(".play-back li");
 
-
-function playVideo(){
-    playPause.innerHTML = "pause";
-    playPause.title = "play";
-    videoPlayer.classList.add('paused')
-    mainVideo.play();
+function playVideo() {
+  playPause.innerHTML = "pause";
+  playPause.title = "play";
+  videoPlayer.classList.add("paused");
+  mainVideo.play();
 }
 
 function pauseVideo() {
-    playPause.innerHTML = "play_arrow";
-    playPause.title = "pause";
-    videoPlayer.classList.remove('paused')
-    mainVideo.pause();
+  playPause.innerHTML = "play_arrow";
+  playPause.title = "pause";
+  videoPlayer.classList.remove("paused");
+  mainVideo.pause();
 }
 
 // play or pause video on click
-playPause.addEventListener('click',() => {
-  const isVideoPaused = videoPlayer.classList.contains('paused');
-  isVideoPaused ?  pauseVideo() : playVideo()
-})
+playPause.addEventListener("click", () => {
+  const isVideoPaused = videoPlayer.classList.contains("paused");
+  isVideoPaused ? pauseVideo() : playVideo();
+});
 
-mainVideo.addEventListener("play",() => {
+mainVideo.addEventListener("play", () => {
   playVideo();
-})
-mainVideo.addEventListener("pause",() => {
+});
+mainVideo.addEventListener("pause", () => {
   pauseVideo();
-})
-
+});
 
 //skip forward or backward function
 fastRewind.addEventListener("click", () => {
-  mainVideo.currentTime -= 10
-})
+  mainVideo.currentTime -= 10;
+});
 fastForward.addEventListener("click", () => {
-  mainVideo.currentTime += 10
-})
+  mainVideo.currentTime += 10;
+});
 
 //Load video duration
-mainVideo.addEventListener("loadeddata",(e) => {
+mainVideo.addEventListener("loadeddata", (e) => {
   let videoDuration = e.target.duration;
   let totalMin = Math.floor(videoDuration / 60);
   let totalSec = Math.floor(videoDuration % 60);
 
   //if seconds are less than 10 then add 0 at beginning
-  totalSec < 10 ? totalSec ="0"+totalSec : totalSec;
-  totalDuration.innerHTML = `${totalMin}:${totalSec}`
-})
+  totalSec < 10 ? (totalSec = "0" + totalSec) : totalSec;
+  totalDuration.innerHTML = `${totalMin}:${totalSec}`;
+});
 
 //current video duration
-mainVideo.addEventListener("timeupdate",(e) => {
+mainVideo.addEventListener("timeupdate", (e) => {
   let currentVideoTime = e.target.currentTime;
   let currentMin = Math.floor(currentVideoTime / 60);
   let currentSec = Math.floor(currentVideoTime % 60);
-  currentSec < 10 ? currentSec ="0"+currentSec : currentSec;
-  current.innerHTML = `${currentMin}:${currentSec}` 
+  currentSec < 10 ? (currentSec = "0" + currentSec) : currentSec;
+  current.innerHTML = `${currentMin}:${currentSec}`;
 
   let videoDuration = e.target.duration;
   //progress bar width change
   let progressWidth = (currentVideoTime / videoDuration) * 100;
-  progressBar.style.width = `${progressWidth}%`
-})
+  progressBar.style.width = `${progressWidth}%`;
+});
 
 //change volume
 
 function changeVolume() {
   mainVideo.volume = volumeRange.value / 100;
-  if(volumeRange.value == 0){
-    volume.innerHTML = "volume_off"
-  }else if(volumeRange.value < 40){
+  if (volumeRange.value == 0) {
+    volume.innerHTML = "volume_off";
+  } else if (volumeRange.value < 40) {
     volume.innerHTML = "volume_down";
-  }else{
+  } else {
     volume.innerHTML = "volume_up";
   }
 }
 
 function muteVolume() {
-  if(volumeRange.value == 0){
+  if (volumeRange.value == 0) {
     volumeRange.value = 80;
     mainVideo.volume = 0.8;
     volume.innerHTML = "volume_up";
-  }else{
+  } else {
     volumeRange.value == 0;
     mainVideo.volume = 0;
     volume.innerHTML = "volume_off";
@@ -107,32 +105,33 @@ function muteVolume() {
 
 volumeRange.addEventListener("change", () => {
   changeVolume();
-})
+});
 
 volume.addEventListener("click", () => {
   muteVolume();
-})
+});
+
 //open settings
-settingsBtn.addEventListener("click",() => {
+settingsBtn.addEventListener("click", () => {
   settings.classList.toggle("active");
   settingsBtn.classList.toggle("active");
-})
+});
 
 //play back rate
 
-playBack.forEach((event) => {
-    event.addEventListener("click",() => {
-      removeActiveClasses();
-      event.classList.add("active");
-      let speed = event.getAttribute('data-speed');
-      mainVideo.playbackRate = speed;
-    })
+playBack.forEach((item) => {
+  item.addEventListener("click", () => {
+    removeActiveClasses();
+    item.classList.add("active");
+    let speed = item.getAttribute("data-speed");
+    mainVideo.playbackRate = speed;
+  });
 });
 
 function removeActiveClasses() {
-    playBack.forEach(event => {
-        event.classList.remove("active");
-    });
+  playBack.forEach((item) => {
+    item.classList.remove("active");
+  });
 }
 
 // Update progress area time and display block on move
@@ -181,7 +180,7 @@ pictureInPicture.addEventListener("click", () => {
   mainVideo.requestPictureInPicture();
 });
 
-// Full SCreen
+// Full Screen
 
 fullscreen.addEventListener("click", () => {
   if (!videoPlayer.classList.contains("openFullScreen")) {
@@ -194,8 +193,6 @@ fullscreen.addEventListener("click", () => {
     document.exitFullscreen();
   }
 });
-
-
 
 // Store video duration and video path in localStorage
 
