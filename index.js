@@ -175,6 +175,27 @@ mainVideo.addEventListener("ended", () => {
   }
 });
 
+// Picture in Picture mode
+
+pictureInPicture.addEventListener("click", () => {
+  mainVideo.requestPictureInPicture();
+});
+
+// Full SCreen
+
+fullscreen.addEventListener("click", () => {
+  if (!videoPlayer.classList.contains("openFullScreen")) {
+    videoPlayer.classList.add("openFullScreen");
+    fullscreen.innerHTML = "fullscreen_exit";
+    videoPlayer.requestFullscreen();
+  } else {
+    videoPlayer.classList.remove("openFullScreen");
+    fullscreen.innerHTML = "fullscreen";
+    document.exitFullscreen();
+  }
+});
+
+
 
 // Store video duration and video path in localStorage
 
