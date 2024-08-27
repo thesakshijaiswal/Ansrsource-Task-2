@@ -62,3 +62,31 @@ section{
     z-index: 3;
     transform: translateY(0);
 }
+
+#video-player .controls .progress-area{
+    width: 100%;
+    height: 5px;
+    margin: auto;
+    background: #f0f0f0;
+}
+
+.controls .progress-area .progress-bar{
+    position: relative;
+    width: 50%;
+    background: #EF2A39;
+    height: inherit;
+    border-radius: inherit;
+    cursor: pointer;
+}
+
+.controls .progress-area .progress-bar::before{
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    right: -5px;
+    background: #EF2A39;
+    top: 50%;
+    transform: translateY(-50%);
+}
