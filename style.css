@@ -287,11 +287,11 @@ section {
     height: 150px;
   }
   
-  .footer-container p {
+.footer-container p {
     font-weight: 500;
   }
 
-  .footer-container p a {
+.footer-container p a {
     color: #FF9633;
     font-weight: 500;
     text-decoration: none;
