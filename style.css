@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: slategray;
+}
+
+.material-icons{
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.7%;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling Video Player */
+
+.container #video-player{
+    position: relative;
+    width: 700px;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(31, 26, 26, 0.24);
+}
+
+.container #video-player #main-video{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.container #video-player .controls{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background: rgb(0 0 0 / 71%);
+    box-shadow: 0 0 40px 10px rgba(0 0 0 / 25%);
+    z-index: 3;
+    transform: translateY(0);
+}

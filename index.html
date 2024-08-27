@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuzzPlay</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 </head>
 <body>
     <section>
+        <div class="container">
         <div id="video-player">
-            <video src="" id="main-video"></video>
+            <video src="./media/test-video.mp4" id="main-video"></video>
             <div class="progressAreaTime"></div>
             <div class="controls">
                 <div class="progress-area">
@@ -50,7 +59,7 @@
                     </span>
                 </div>
             </div>
-            <div class="settings">
+            <!-- <div class="settings">
                 <div class="playback">
                     <span>PlayBack Speed</span>
                     <ul>
@@ -64,8 +73,10 @@
                         <li data-speed="2">2</li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
+    
         </div>
+    </div>
     </section>
 </body>
 </html>
