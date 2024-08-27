@@ -80,6 +80,38 @@ mainVideo.addEventListener("timeupdate",(e) => {
   progressBar.style.width = `${progressWidth}%`
 })
 
+//change volume
+
+function changeVolume() {
+  mainVideo.volume = volumeRange.value / 100;
+  if(volumeRange.value == 0){
+    volume.innerHTML = "volume_off"
+  }else if(volumeRange.value < 40){
+    volume.innerHTML = "volume_down";
+  }else{
+    volume.innerHTML = "volume_up";
+  }
+}
+
+function muteVolume() {
+  if(volumeRange.value == 0){
+    volumeRange.value = 80;
+    mainVideo.volume = 0.8;
+    volume.innerHTML = "volume_up";
+  }else{
+    volumeRange.value == 0;
+    mainVideo.volume = 0;
+    volume.innerHTML = "volume_off";
+  }
+}
+
+volumeRange.addEventListener("change", () => {
+  changeVolume();
+})
+
+volume.addEventListener("click", () => {
+  muteVolume();
+})
 //open settings
 settingsBtn.addEventListener("click",() => {
   settings.classList.toggle("active");
