@@ -156,6 +156,25 @@ progressArea.addEventListener("mouseleave", () => {
   progressAreaTime.style.display = "none";
 });
 
+// Auto play if video is ended fn
+autoPlay.addEventListener("click", () => {
+  autoPlay.classList.toggle("active");
+  if (autoPlay.classList.contains("active")) {
+    autoPlay.title = "Autoplay is on";
+  } else {
+    autoPlay.title = "Autoplay is off";
+  }
+});
+
+mainVideo.addEventListener("ended", () => {
+  if (autoPlay.classList.contains("active")) {
+    playVideo();
+  } else {
+    playPause.innerHTML = "replay";
+    playPause.title = "Replay";
+  }
+});
+
 
 // Store video duration and video path in localStorage
 
