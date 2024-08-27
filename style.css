@@ -52,6 +52,40 @@ section {
   outline: none;
 }
 
+#video-player .progressAreaTime {
+  position: absolute;
+  bottom: 60px;
+  left: var(--x);
+  transform: translateX(-50%);
+  min-width: 60px;
+  text-align: center;
+  padding: 5px 10px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 14px;
+  background: #002333;
+  border-radius: 5px;
+  z-index: 1;
+  display: none;
+}
+
+#video-player .progressAreaTime {
+  position: absolute;
+  bottom: 60px;
+  left: var(--x);
+  transform: translateX(-50%);
+  min-width: 60px;
+  text-align: center;
+  padding: 5px 10px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 14px;
+  background: #002333;
+  border-radius: 5px;
+  z-index: 1;
+  display: none;
+}
+
 .container #video-player .controls {
   position: absolute;
   bottom: 0;

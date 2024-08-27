@@ -134,3 +134,56 @@ function removeActiveClasses() {
         event.classList.remove("active");
     });
 }
+
+// Update progress area time and display block on move
+
+progressArea.addEventListener("mousemove", (e) => {
+  let progressWidthValue = progressArea.clientWidth;
+  let x = e.offsetX;
+  progressAreaTime.style.setProperty("--x", `${x}px`);
+  progressAreaTime.style.display = "block";
+
+  let videoDuration = mainVideo.duration;
+  let progressTime = Math.floor((x / progressWidthValue) * videoDuration);
+  let currentMin = Math.floor(progressTime / 60);
+  let currentSec = Math.floor(progressTime % 60);
+  currentSec < 10 ? (currentSec = "0" + currentSec) : currentSec;
+
+  progressAreaTime.innerHTML = `${currentMin}:${currentSec}`;
+});
+
+progressArea.addEventListener("mouseleave", () => {
+  progressAreaTime.style.display = "none";
+});
+
+
+// Store video duration and video path in localStorage
+
+window.addEventListener("unload", () => {
+  let setDuration = localStorage.setItem(
+    "duration",
+    `${mainVideo.currentTime}`
+  );
+  let setSrc = localStorage.setItem("src", `${mainVideo.getAttribute("src")}`);
+});
+
+window.addEventListener("load", () => {
+  let getDuration = localStorage.getItem("duration");
+
+  let getSrc = localStorage.getItem("src");
+
+  if (getSrc) {
+    mainVideo.src = getSrc;
+    mainVideo.currentTime = getDuration;
+  }
+});
+
+mainVideo.addEventListener("contextmenu", () => {
+  e.preventDefault();
+});
+
+// mouse move
+
+videoPlayer.addEventListener("mouseover", () => {
+  controls.classList.add("active");
+});
