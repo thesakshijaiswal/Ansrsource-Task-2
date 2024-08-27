@@ -173,3 +173,37 @@ section{
     pointer-events: auto;
     transition: 0.5s;
 }
+
+.controls-right .icon .auto-play{
+    width: 30px;
+    height: 10px;
+    border-radius: 20px;
+    position: relative;
+    margin-right: 8px !important;
+    background: #b6b6b6;
+}
+
+.controls-right .icon .auto-play::before{
+    content: '\e034';
+    position: absolute;
+    font-size: 14px;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #727272;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 17px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-family: "Material Icons";
+}
+
+.controls-right .icon .auto-play.active::before{
+    content: '\e037';
+    left: 15px;
+    font-family: "Material Icons";
+}
