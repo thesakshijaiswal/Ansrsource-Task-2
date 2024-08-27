@@ -16,7 +16,7 @@ const settingsBtn = videoPlayer.querySelector(".settingsBtn");
 const picInPic = videoPlayer.querySelector(".picture-in-picture");
 const fullscreen = videoPlayer.querySelector(".fullscreen");
 const settings = videoPlayer.querySelector("#settings");
-const playBack = videoPlayer.querySelector(".play-back li");
+const playBack = videoPlayer.querySelectorAll(".play-back li");
 
 
 function playVideo(){
@@ -93,7 +93,7 @@ playBack.forEach((event) => {
       removeActiveClasses();
       event.classList.add("active");
       let speed = event.getAttribute('data-speed');
-      mainVideo.playBackRate = speed;
+      mainVideo.playbackRate = speed;
     })
 });
 
