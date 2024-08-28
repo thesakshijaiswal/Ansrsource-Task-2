@@ -21,7 +21,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 150px);
+  width: 100%;
   padding: 1.7%;
 }
 
@@ -183,17 +184,20 @@ section {
 }
 
 .controls .icon .volume-range {
+  -webkit-appearance: none;
   appearance: none;
   height: 3px;
   background: #fff;
   color: #fff;
-  width: 60px;
+  width: 0px;
   cursor: pointer;
   border: none;
   outline: none;
+  transition: 0.4s;
 }
 
 .controls .icon .volume-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
   width: 12px;
   height: 12px;
@@ -204,6 +208,11 @@ section {
   color: #fff;
   transition: 0.3s;
   opacity: 0;
+}
+
+.controls .icon:hover .volume-range{
+  display: inline-block;
+  width: 60px;
 }
 
 .controls .icon:hover .volume-range::-webkit-slider-thumb {
