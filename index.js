@@ -78,6 +78,13 @@ mainVideo.addEventListener("timeupdate", (e) => {
   progressBar.style.width = `${progressWidth}%`;
 });
 
+progressArea.addEventListener("click",() => {
+  let videoDuration = mainVideo.duration;
+  let progressWidthVal = progressArea.clientWidth;
+  let clickOffsetX = e.offsetX;
+  mainVideo.currentTime = (clickOffsetX / progressWidthVal) * videoDuration;
+})
+
 //change volume
 
 function changeVolume() {
