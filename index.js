@@ -78,7 +78,7 @@ mainVideo.addEventListener("timeupdate", (e) => {
   progressBar.style.width = `${progressWidth}%`;
 });
 
-progressArea.addEventListener("click",() => {
+progressArea.addEventListener("click",(e) => {
   let videoDuration = mainVideo.duration;
   let progressWidthVal = progressArea.clientWidth;
   let clickOffsetX = e.offsetX;
@@ -153,8 +153,8 @@ progressArea.addEventListener("mousemove", (e) => {
   let progressTime = Math.floor((x / progressWidthValue) * videoDuration);
   let currentMin = Math.floor(progressTime / 60);
   let currentSec = Math.floor(progressTime % 60);
-  currentSec < 10 ? (currentSec = "0" + currentSec) : currentSec;
 
+  currentSec < 10 ? (currentSec = "0" + currentSec) : currentSec;
   progressAreaTime.innerHTML = `${currentMin}:${currentSec}`;
 });
 
@@ -213,16 +213,14 @@ window.addEventListener("unload", () => {
 
 window.addEventListener("load", () => {
   let getDuration = localStorage.getItem("duration");
-
   let getSrc = localStorage.getItem("src");
-
   if (getSrc) {
     mainVideo.src = getSrc;
     mainVideo.currentTime = getDuration;
   }
 });
 
-mainVideo.addEventListener("contextmenu", () => {
+mainVideo.addEventListener("contextmenu", (e) => {
   e.preventDefault();
 });
 
