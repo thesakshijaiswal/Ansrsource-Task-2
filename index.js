@@ -219,8 +219,54 @@ mainVideo.addEventListener("contextmenu", () => {
   e.preventDefault();
 });
 
-// mouse move
-
+// Mouse movements based events for controls overlay
 videoPlayer.addEventListener("mouseover", () => {
+  controls.classList.add("active"); // when hover on video show controls
+});
+
+videoPlayer.addEventListener("mouseleave", () => {
+  if (videoPlayer.classList.contains("paused")) {
+    // if video paused/settingsBtn is active then keep control visible even if mouse leaves else make them disappear on mouse leave
+    if (settingsBtn.classList.contains("active")) {
+      controls.classList.add("active");
+    } else {
+      controls.classList.remove("active");
+    }
+  } else {
+    // usually make it visible
+    controls.classList.add("active");
+  }
+});
+
+// Same conditions but for default initial state when user reloads or comes on page for first and video is paused
+if (videoPlayer.classList.contains("paused")) {
+  if (settingsBtn.classList.contains("active")) {
+    controls.classList.add("active");
+  } else {
+    controls.classList.remove("active");
+  }
+} else {
   controls.classList.add("active");
+}
+
+// similar functionality on touch screen mobile devices
+
+videoPlayer.addEventListener("touchstart", () => {
+  controls.classList.add("active");
+
+  setTimeout(() => {
+    controls.classList.remove("active");
+  }, 8000); // remove the controls after 8s
+});
+
+videoPlayer.addEventListener("touchmove", () => {
+  if (videoPlayer.classList.contains("paused")) {
+    if (settingsBtn.classList.contains("active")) {
+      controls.classList.add("active");
+    } else {
+      controls.classList.remove("active");
+    }
+  } else {
+    controls.classList.add("active");
+  }
 });
